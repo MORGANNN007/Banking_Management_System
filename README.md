@@ -1,153 +1,153 @@
-Here is a clean **copy-paste ready README.md** for your Banking Management System without emojis:
+Here is a **clean, professional README.md** for your JDBC Banking Management System project (no emojis, GitHub-ready):
 
-````md
-# Banking Management System
+---
 
-A simple Banking Management System built using Java, JDBC, and MySQL.  
-This project simulates basic banking operations like account creation, deposit, withdrawal, balance check, and account management.
+```md
+# Banking Management System (Java JDBC)
+
+## Overview
+This is a console-based Banking Management System developed using Java and JDBC with MySQL.  
+The project demonstrates core banking operations such as user management, account creation, deposits, withdrawals, and money transfers using database connectivity.
 
 ---
 
 ## Features
-
-- Create new bank account
-- View account details
+- User registration and login
+- Create bank account
 - Deposit money
 - Withdraw money
+- Transfer money between accounts
 - Check account balance
-- Delete account
-- Secure database connectivity using JDBC
+- Security PIN verification for transactions
 
 ---
 
 ## Technologies Used
-
-- Java (Core + OOP)
+- Java
 - JDBC (Java Database Connectivity)
-- MySQL Database
-- Eclipse / IntelliJ IDEA
-- Apache Tomcat (if JSP/Servlet version is used)
+- MySQL
+- SQL (DDL & DML)
+- Eclipse / IntelliJ IDE
+
+---
+
+## Project Structure
+
+The main source files are located in:
+
+```
+
+src/main/java/bank/
+
+````
+
+### Main Files:
+- BankingApp.java
+- User.java
+- Accounts.java
+- AccountManager.java
 
 ---
 
 ## Database Setup
 
-### 1. Create Database
+### Create Database
 ```sql
-CREATE DATABASE banking_system;
+CREATE DATABASE bank;
+USE bank;
 ````
 
-### 2. Use Database
+### User Table
 
 ```sql
-USE banking_system;
+CREATE TABLE `user` (
+    user_id INT PRIMARY KEY AUTO_INCREMENT,
+    full_name VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    password VARCHAR(100)
+);
 ```
 
-### 3. Create Table
+### Accounts Table
 
 ```sql
 CREATE TABLE accounts (
-    account_id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(100),
+    account_number BIGINT PRIMARY KEY,
+    full_name VARCHAR(100),
     email VARCHAR(100),
-    balance DOUBLE
+    balance DECIMAL(10,2),
+    security_pin VARCHAR(10)
 );
 ```
 
 ---
 
-## Project Setup
+## Configuration
 
-### Step 1: Clone the Project
-
-```bash
-git clone https://github.com/your-username/banking-management-system.git
-```
-
-### Step 2: Import into IDE
-
-* Open Eclipse or IntelliJ IDEA
-* Import as Existing Java Project
-
-### Step 3: Add MySQL Connector
-
-* Download mysql-connector-j.jar
-* Add it to project build path
-
-### Step 4: Configure Database Connection
-
-Update your database credentials in code:
+Update database connection in your Java file:
 
 ```java
-String url = "jdbc:mysql://localhost:3306/banking_system";
-String user = "root";
-String password = "your_password";
+private static final String url = "jdbc:mysql://127.0.0.1:3306/bank";
+private static final String username = "root";
+private static final String password = "your_password";
 ```
 
 ---
 
 ## How to Run
 
-1. Start MySQL Server
-2. Run the Java application
-3. Use the console menu to perform operations:
-
-   * Create Account
-   * Deposit Money
-   * Withdraw Money
-   * Check Balance
-   * Exit
+1. Clone the repository
+2. Open project in Eclipse or IntelliJ IDEA
+3. Add MySQL JDBC driver to classpath
+4. Configure database credentials
+5. Run `BankingApp.java`
 
 ---
 
-## Example Menu
+## Working Flow
 
-```
-===== Banking System =====
-1. Create Account
-2. Deposit Money
-3. Withdraw Money
-4. Check Balance
-5. Exit
-```
+1. User registers or logs in
+2. Account is created if not already present
+3. User performs operations:
+
+   * Deposit
+   * Withdraw
+   * Transfer money
+   * Check balance
 
 ---
 
-## Project Structure
+## Transaction Handling
 
-```
-BankingManagementSystem/
-│
-├── src/
-│   ├── Main.java
-│   ├── Account.java
-│   ├── DBConnection.java
-│   ├── BankOperations.java
-│
-├── lib/
-│   └── mysql-connector.jar
-│
-├── database/
-│   └── banking_system.sql
-│
-└── README.md
-```
+* Uses JDBC transaction management
+* Auto-commit disabled during transactions
+* Commit executed on success
+* Rollback executed on failure
+
+This ensures data consistency during operations like fund transfer.
+
+---
+
+## Limitations
+
+* No GUI (console-based application)
+* Password stored in plain text
+* Basic validation only
 
 ---
 
 ## Future Improvements
 
-* GUI using Java Swing or JavaFX
-* Login authentication system
-* Transaction history tracking
-* Spring Boot REST API version
-* Web-based frontend using React or JSP
+* Implement password encryption
+* Add graphical user interface (Swing/JavaFX)
+* Convert into web application using Spring Boot
+* Add transaction history feature
+* Improve validation and error handling
 
 ---
 
 ## Author
 
 Yash Ingole
-Final Year Computer Science Student
-Interest: Java Development, Web Development, AI Projects
+
 
