@@ -1,8 +1,3 @@
-Here is a **clean, professional README.md** for your JDBC Banking Management System project (no emojis, GitHub-ready):
-
----
-
-```md
 # Banking Management System (Java JDBC)
 
 ## Overview
@@ -149,5 +144,4 @@ This ensures data consistency during operations like fund transfer.
 ## Author
 
 Yash Ingole
-
 
